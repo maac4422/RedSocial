@@ -1,0 +1,15 @@
+=form_tag "/custom_sign_up", method: :post do
+	%ul
+		-@user.errors.full_messages.each do |error|
+			%li= error
+	%div
+		%label{for:"user_username"} Nombre de Usuario
+		=text_field_tag "user[username]",@user.username	
+	%div
+		%label{for:"user_email"} Email
+		=email_field_tag "user[email]",@user.username,required: true	
+	%div
+		%label{for:"user_first_name"} Nombre
+		=text_field_tag "user[first_name]",@user.first_name
+	%div
+		=submit_tag "Completar registro"

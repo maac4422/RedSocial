@@ -1,0 +1,18 @@
+%header.mdl-layout__header.mdl-layout__header--scroll
+  .mdl-layout__header-row
+
+    %span.mdl-layout-title Red Social
+
+    .mdl-layout-spacer
+
+    %nav.mdl-navigation.mdl-layout--large-screen-only
+      -if user_signed_in?
+        =link_to "Cerrar Sesión",destroy_user_session_path,method: :delete, class:"white-text"
+
+.mdl-layout__drawer
+  %span.mdl-layout-title Red Social
+  %nav.mdl-navigation
+    %a.mdl-navigation__link Link {href:""}
+    %a.mdl-navigation__link Link {href:""}
+    %a.mdl-navigation__link Link {href:""}
+    %a.mdl-navigation__link Link {href:""}

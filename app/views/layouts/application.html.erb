@@ -3,12 +3,27 @@
   <head>
     <title>RedSocial</title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag%>
+
+   <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.red-indigo.min.css" /> 
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+        <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <p style="<%= 'display:none;' if notice.nil? && alert.nil?%>">
+        <%= notice %> <%= alert %> 
+      </p>
+      <%= render "partials/nav" %>      
+      <main class="mdl-layout__content">
+        <div class="page-content"><%= yield %></div>
+      </main>
+    </div>
   </body>
 </html>

@@ -34,9 +34,14 @@ gem 'haml-rails'
 gem 'devise', '~> 4.2'
 gem 'omniauth-facebook', '~> 4.0'		#Autenticación facebook
 
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'shoulda-matchers'						#Metodos de ayuda validaciones rails
+  gem 'rspec-rails', '~> 3.5.0.beta1'	#Framework pruebas
+  gem 'factory_girl', '~> 4.0'					#Permite crear objetos a base de datos para pruebas
 end
 
 group :development do
