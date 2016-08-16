@@ -9,14 +9,11 @@
 							.col-xs
 								.box
 									%h1.no-margin.medium
-										=@user.first_name
-										=@user.last_name
-										=@user.email
+										%span= best_in_place @user,:first_name
+										%span= best_in_place @user,:last_name
 							.col-xs-4.col-sm-2
 								.box
 									/Boton Agregar amigo
-
-							/=@user.email
 					.large-padding
 						.row
 							.col-xs
@@ -29,4 +26,4 @@
 						.row.center-xs
 							.col-xs-8.col-md-10
 								.box
-									=@user.bio						
+									%span= best_in_place @user,:bio	
