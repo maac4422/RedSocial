@@ -1,0 +1,32 @@
+.top-space
+	.row.center-xs
+		.col-xs-10.col-md-6.col-sm-8.col-lg-4
+			.box
+				.white.mdl-shadow--2dp.top-space.relative
+					/Cover usuario
+					%section.border-bottom.top-space
+						.row.middle-xs
+							.col-xs
+								.box
+									%h1.no-margin.medium
+										=@user.first_name
+										=@user.last_name
+										=@user.email
+							.col-xs-4.col-sm-2
+								.box
+									/Boton Agregar amigo
+
+							/=@user.email
+					.large-padding
+						.row
+							.col-xs
+								.box
+									Seguidores
+							.col-xs
+								.box
+									=@user.posts.count		
+									Posts	
+						.row.center-xs
+							.col-xs-8.col-md-10
+								.box
+									=@user.bio						

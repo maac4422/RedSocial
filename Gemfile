@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'						
 gem 'devise', '~> 4.2'
 gem 'omniauth-facebook', '~> 4.0'		#Autenticación facebook
+gem 'annotate'
 
 
 
