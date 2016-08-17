@@ -35,6 +35,8 @@ gem 'devise', '~> 4.2'
 gem 'omniauth-facebook', '~> 4.0'		#Autenticación facebook
 gem 'annotate'
 gem 'best_in_place', '~> 3.0.1'     #editar formularios
+gem "paperclip", "~> 5.0.0"
+gem "mini_magick"
 
 
 

@@ -21,6 +21,14 @@
 #  provider               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  avatar_file_name       :string
+#  avatar_content_type    :string
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
+#  cover_file_name        :string
+#  cover_content_type     :string
+#  cover_file_size        :integer
+#  cover_updated_at       :datetime
 #
 
 require 'test_helper'

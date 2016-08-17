@@ -3,14 +3,19 @@
 		.col-xs-10.col-md-6.col-sm-8.col-lg-4
 			.box
 				.white.mdl-shadow--2dp.top-space.relative
-					/Cover usuario
+					.big-padding.white-text.text-left.cover.realtive{style:"background-image:url(#{@user.cover.url(:medium)})"}
+						=render "accounts/menu_avatar"
+						.top-space
+							=circle_img @user.avatar.url(:thumb),100
 					%section.border-bottom.top-space
 						.row.middle-xs
 							.col-xs
 								.box
 									%h1.no-margin.medium
-										%span= best_in_place @user,:first_name
-										%span= best_in_place @user,:last_name
+										%span= best_in_place_if current_user == @user,@user,:first_name
+										%span= best_in_place_if current_user == @user,@user,:last_name
+										%p
+											%span= best_in_place_if current_user == @user,@user,:username
 							.col-xs-4.col-sm-2
 								.box
 									/Boton Agregar amigo
@@ -26,4 +31,11 @@
 						.row.center-xs
 							.col-xs-8.col-md-10
 								.box
-									%span= best_in_place @user,:bio	
+									%span= best_in_place_if current_user == @user,@user,:bio
+					.top-space
+						=form_for @user do |f|
+							%div{style:"display:none;"}
+								=f.file_field :avatar
+								=f.file_field :cover
+							.top-space
+								=f.submit "Enviar"	
