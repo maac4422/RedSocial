@@ -28,6 +28,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'remotipart', github:"urielhdz/remotipart"    #Upload files via AJAX
+gem 'aasm'    #Maquina de estados
+gem 'activemodel-serializers-xml',github:"rails/activemodel-serializers-xml" #Necesario para draper
+gem 'draper', github:"audionerd/draper",branch:"rails5"
 
 
 gem 'haml-rails'						

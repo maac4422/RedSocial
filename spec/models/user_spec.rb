@@ -41,12 +41,12 @@ RSpec.describe User, type: :model do
 	describe "#validate_username_regex" do
 		#let(:user){FactoryGirl.build(:user)}
 		it "should not allow username with numbers at the beginning" do
-			#user = User.new(email: "miguel@hotmail.com",password:"1234",username:"1miguel")
+			user = User.new(email: "miguel@hotmail.com",password:"1234",username:"1miguel")
 			expect(user.valid?).to be_falsy #=>false/nil
 		end
 
 		it "should not contain special characters" do
-			#user = User.new(email: "miguel@hotmail.com",password:"1234",username:"miguel*")
+			user = User.new(email: "miguel@hotmail.com",password:"1234",username:"miguel*")
 			expect(user.valid?).to be_falsy #=>false/nil
 		end
 	

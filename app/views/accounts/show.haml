@@ -3,9 +3,9 @@
 		.col-xs-10.col-md-6.col-sm-8.col-lg-4
 			.box
 				.white.mdl-shadow--2dp.top-space.relative
-					.big-padding.white-text.text-left.cover.realtive{style:"background-image:url(#{@user.cover.url(:medium)})"}
+					.big-padding.white-text.text-left.cover.realtive#user-cover{style:"background-image:url(#{@user.cover.url(:medium)})"}
 						=render "accounts/menu_avatar"
-						.top-space
+						.top-space#user-avatar
 							=circle_img @user.avatar.url(:thumb),100
 					%section.border-bottom.top-space
 						.row.middle-xs
@@ -33,9 +33,7 @@
 								.box
 									%span= best_in_place_if current_user == @user,@user,:bio
 					.top-space
-						=form_for @user do |f|
-							%div{style:"display:none;"}
-								=f.file_field :avatar
-								=f.file_field :cover
-							.top-space
-								=f.submit "Enviar"	
+						=form_for @user,remote: true do |f|
+							=f.file_field :avatar,class:"remotipart"
+						=form_for @user,remote: true do |f|
+							=f.file_field :cover,class:"remotipart"

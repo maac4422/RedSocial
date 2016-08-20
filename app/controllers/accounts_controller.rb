@@ -17,6 +17,7 @@ class AccountsController < ApplicationController
 			if @user.update(user_params)
 				format.html{redirect_to @user}
 				format.json{ render :show }
+				format.js
 			else
 				format.html{redirect_to @user,notice:@user.errors.full_messages}
 				format.json{ render json: @user.errors}				
