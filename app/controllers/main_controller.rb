@@ -1,7 +1,7 @@
 class MainController < ApplicationController
   def home
     @post= Post.new
-    @posts =Post.all
+    @posts =Post.all_for_user(current_user).nuevos.paginate(page: params[:page],per_page: 15)
   end
 
   def unregistered
@@ -11,7 +11,6 @@ class MainController < ApplicationController
   protected
 	  def set_layout
 		return "landing" if action_name == "unregistered"
-		#else
 		super  	
 	  end
 end

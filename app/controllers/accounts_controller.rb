@@ -8,7 +8,7 @@ class AccountsController < ApplicationController
 
 
 	def show
-		
+		@are_friends = current_user.my_friend?(@user)
 	end
 
 	def update

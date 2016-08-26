@@ -38,6 +38,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable , :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :posts
+  has_many :friendships
+  has_many :followers,class_name: "Friendship", foreign_key: "friend_id"
+
+  has_many :friends_added, through: :friendships, source: :friend
+  has_many :friends_who_added, through: :friendships, source: :user
+
   validates :username, presence: true,uniqueness: true ,length: {in: 3..12} 
   validate :validate_username_regex
 
@@ -57,6 +63,21 @@ class User < ApplicationRecord
   		#Create string random characters 
   		user.password = Devise.friendly_token[0,20]
   	end
+  end
+
+  def my_friend?(friend)
+    Friendship.friends?(self,friend)
+  end
+
+
+  #Obtener el id de mis amigos que les envie la amistad
+  def friend_ids
+    Friendship.active.where(user:self).pluck(:friend_id)
+  end
+
+  #IDs de los que me enviaron la amistad
+  def user_ids
+    Friendship.active.where(friend:self).pluck(:user_id)
   end
 
   private

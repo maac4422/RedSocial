@@ -1,1 +1,2 @@
-$("#posts").append("<%= j render @post %>")
+$("#posts").prepend("<%= j render @post %>")
+$("#post_body").val("")

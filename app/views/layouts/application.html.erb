@@ -13,7 +13,13 @@
   </head>
 
   <body>
-        <!-- Always shows a header, even in smaller screens. -->
+    <div id="global-snackbar" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text">
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+    </div>
+
+    
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <p style="<%= 'display:none;' if notice.nil? && alert.nil?%>">
         <%= notice %> <%= alert %> 

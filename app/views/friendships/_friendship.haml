@@ -1,0 +1,22 @@
+.row.middle-xs
+	.col-xs-2.col-md-1.text-left
+		.box
+			=circle_img friendship.user_view.avatar.url(:thumb),50
+	.col-xs-7.col-md-8.text-left
+		.box
+			=friendship.user_view.username
+	-if friendship.pending?
+		-if friendship.user == current_user
+			%p Esperando Respuesta
+		-else
+			.col-xs-3
+				.box
+					.row.middle-xs.around-xs
+						.col-xs-5.col-md-5
+							.box
+								=friendship.confirm_button
+						.col-xs-5.col-md-5.right-space
+							.box
+								=friendship.denegate_button
+	-else
+		=friendship.status

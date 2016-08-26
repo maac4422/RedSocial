@@ -42,6 +42,7 @@ gem 'best_in_place', '~> 3.0.1'     #editar formularios
 gem "paperclip", "~> 5.0.0"
 gem "mini_magick"
 
+gem "will_paginate"
 
 
 group :development, :test do

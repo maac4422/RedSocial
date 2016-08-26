@@ -18,7 +18,9 @@
 											%span= best_in_place_if current_user == @user,@user,:username
 							.col-xs-4.col-sm-2
 								.box
-									/Boton Agregar amigo
+									-unless @are_friends
+										=button_to friendships_path(friend_id: @user.id),method: :post,remote: true, :"data-type" => "script" ,class:"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" do
+											%i.material-icons person_add
 					.large-padding
 						.row
 							.col-xs
