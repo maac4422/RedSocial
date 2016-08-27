@@ -10,7 +10,7 @@ end
 
 
 #Se ejecuta antes que se destruya la sesión del usuario
-Warden::Manager.before_set_user do |user,auth,opts|
+Warden::Manager.before_logout do |user,auth,opts|
 	auth.cookies.signed["user.id"] = nil
 	auth.cookies.signed["user.expired_at"] = nil
 end

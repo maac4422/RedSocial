@@ -1,4 +1,5 @@
 class Friendship < ApplicationRecord
+  include Notificable
   belongs_to :user
   belongs_to :friend,class_name: "User"
 
@@ -16,8 +17,13 @@ class Friendship < ApplicationRecord
     Friendship.pending.where(friend: user)
   end
 
-    def self.accepted_for_user(user)
+  def self.accepted_for_user(user)
     Friendship.active.where(friend: user)
+  end
+
+
+  def user_ids
+    
   end
 
   include AASM

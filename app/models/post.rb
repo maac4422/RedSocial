@@ -10,6 +10,7 @@
 #
 
 class Post < ApplicationRecord
+  include Notificable
   belongs_to :user
 
   scope :nuevos, ->{ order("created_at desc") }
@@ -22,17 +23,21 @@ class Post < ApplicationRecord
   		.or( Post.where(user_id: user.user_ids))
   end
 
+  def user_ids
+    self.user.friend_ids + self.user.user_ids
+  end
+
   private
   	def send_to_action_cable
 
   		data = {message: to_html,action:"new_post"} 
 
   		self.user.friend_ids.each do |friend_id|
-  			ActionCable.server.broadcast "demo",data
+  			ActionCable.server.broadcast "posts_#{friend_id}",data
   		end
 
   		self.user.user_ids.each do |friend_id|
-  			
+  			ActionCable.server.broadcast "posts_#{friend_id}",data
   		end
   	end
 
