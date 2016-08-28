@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: friendships
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  friend_id  :integer
+#  status     :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Friendship < ApplicationRecord
   include Notificable
   belongs_to :user

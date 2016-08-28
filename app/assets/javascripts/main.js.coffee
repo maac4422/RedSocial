@@ -8,7 +8,21 @@ window.snack = (options)->
 
 window.loading = false
 
+$(document).on "turbolinks:load", ()->
+	console.log("Estoy dentro")
+	componentHandler.upgradeDom();
+
+
 $(document).on "page:load page:fetch ready", () ->
+	
+	
+	$(".close-parent").on "click", (ev) ->
+		$(this).parent().slideUp()
+
+	$("#notification").on "click", (ev) ->
+		ev.preventDefault() if $("#notifications").hasClass("active")
+		$("#notifications").toggleClass("active")
+		return $("#notifications").hasClass("active")
 	$('.best_in_place').best_in_place()
 	$(".mdl-layout").scroll ->
 

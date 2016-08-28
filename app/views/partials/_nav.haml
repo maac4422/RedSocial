@@ -6,6 +6,10 @@
 
     %nav.mdl-navigation.mdl-layout--large-screen-only
       -if user_signed_in?
+        #notifications
+        .right-space
+          =link_to"/notifications",class:"circle blue white-text",id:"notification",remote: true,data:{type:"script"} do 
+            =current_user.unviewed_notifications_count
         =link_to "Mis amigos",friendships_path, class:"white-text right-space"
         =link_to current_user.username,current_user, class:"white-text right-space"
         =link_to "Cerrar Sesión",destroy_user_session_path,method: :delete, class:"white-text"

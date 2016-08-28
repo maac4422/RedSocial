@@ -70,6 +70,10 @@ class User < ApplicationRecord
   end
 
 
+  def unviewed_notifications_count
+    Notification.for_user(self.id)
+  end
+
   #Obtener el id de mis amigos que les envie la amistad
   def friend_ids
     Friendship.active.where(user:self).pluck(:friend_id)

@@ -21,8 +21,9 @@
 
     
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <p style="<%= 'display:none;' if notice.nil? && alert.nil?%>">
-        <%= notice %> <%= alert %> 
+      <p class="large-padding blue withe-text text-center no-margin" style="<%= 'display:none;' if notice.nil? && alert.nil?%>">
+        <%= notice %> <%= alert %>
+        <span style="float:right;" class="close-parent">X</span> 
       </p>
       <%= render "partials/nav" %>      
       <main class="mdl-layout__content">
